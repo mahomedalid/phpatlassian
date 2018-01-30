@@ -8,7 +8,7 @@ class AssignedIssues
 {
    protected $userId;
    protected $jiraConnector;
-   
+
    public function __construct(JiraConnector $jiraConnector, $userId)
    {
       $this->jiraConnector = $jiraConnector;
