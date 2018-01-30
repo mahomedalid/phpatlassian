@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahomap\Jira;
+namespace Mahopam\Jira;
 
 class Response
 {

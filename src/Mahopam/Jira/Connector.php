@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahomap\Jira;
+namespace Mahopam\Jira;
 
 use \Curl\Curl;
 

@@ -1,8 +1,8 @@
 <?php 
 
-namespace Mahomap\Jira;
+namespace Mahopam\Jira;
 
-use \Mahomap\Jira\Connector as JiraConnector;
+use \Mahopam\Jira\Connector as JiraConnector;
 
 class AssignedIssues
 {
