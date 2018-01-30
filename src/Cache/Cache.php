@@ -6,9 +6,9 @@
  * Time: 12:53 PM
  */
 
-namespace Mahopam\Stats;
+namespace Mahopam\Atlassian\Cache;
 
-interface Cache
+interface ICache
 {
     public function set($context, $key, $content);
     public function get($context, $key);

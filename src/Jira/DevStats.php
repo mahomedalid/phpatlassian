@@ -1,8 +1,8 @@
 <?php
 
-namespace Mahopam\Jira;
+namespace Mahopam\Atlassian\Jira;
 
-use Mahomap\Stats\Storage;
+use Mahopam\Atlassian\Stats\IStorage;
 
 class DevStats
 {
@@ -16,7 +16,7 @@ class DevStats
     protected $additionalFields = '';
     protected $sprintsBoard = 'board/36/sprint?startAt=45';
 
-    public function __construct(JiraConnector $jiraConnector, Storage $storage, $userId)
+    public function __construct(JiraConnector $jiraConnector, IStorage $storage, $userId)
     {
         $this->jiraConnector = $jiraConnector;
         $this->userId = $userId;
@@ -35,51 +35,29 @@ class DevStats
 
     public function getWorkLogs($cleanCache = false)
     {
-        $cache = "cache/worklogs." . date("Ymd");
-
-        if(is_readable($cache) && !$cleanCache) {
-            return unserialize(file_get_contents($cache));
-        }
-
         $date = date('Y-m-d', strtotime($this->period));
         $relativeUrl = "search?jql=".urlencode("updated > {$date} and {$this->additionalFilters} and timespent > 0")."&fields=summary,worklog&maxResults=1000";
 
         $response = $this->jiraConnector->get($relativeUrl);
-
-        file_put_contents($cache, serialize($response));
 
         return $response;
     }
 
     public function getCompletedTasks()
     {
-        $cache = "cache/completed.tasks." . date("Ymd");
-        if(is_readable($cache)) {
-            return unserialize(file_get_contents($cache));
-        }
-
         $date =  date('Y-m-d', strtotime($this->period));
 
         $relativeUrl = "search?jql=".urlencode("status in (Resolved) and updated > {$date} and {$this->additionalFilters} and timespent > 0")."&fields=summary,timeoriginalestimate,assignee,issuetype,parent,resolutiondate,{$this->additionalFields}&maxResults=1000";
         $response = $this->jiraConnector->get($relativeUrl);
-
-        file_put_contents($cache, serialize($response));
 
         return $response;
     }
 
     public function getSprints()
     {
-        $cache = "cache/sprints." . date("Ymd");
-        if(is_readable($cache) && false) {
-            return unserialize(file_get_contents($cache));
-        }
-
         $relativeUrl = $this->sprintsBoard;
 
         $response = $this->jiraConnector->get($relativeUrl);
-
-        file_put_contents($cache, serialize($response));
 
         return $response;
     }

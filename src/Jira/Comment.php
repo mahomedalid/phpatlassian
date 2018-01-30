@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahopam\Jira;
+namespace Mahopam\Atlassian\Jira;
 
 class Comment
 {

@@ -13,7 +13,7 @@
   {
     "psr-4":
     {
-      "Mahopam\\": "src/Mahopam/"
+      "Mahopam\\Atlassian\\": "src/"
     }
   }
 }

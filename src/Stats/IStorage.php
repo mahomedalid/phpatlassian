@@ -1,8 +1,8 @@
 <?php
 
-namespace Mahomap\Stats;
+namespace Mahopam\Atlassian\Stats;
 
-interface Storage
+interface IStorage
 {
     public function storeSprint(array $rawData);
     public function getIssue($id);

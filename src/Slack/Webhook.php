@@ -1,6 +1,6 @@
 <?php 
 
-namespace Mahopam\Slack;
+namespace Mahopam\Atlassian\Slack;
 use \Curl\Curl;
 
 class Webhook
