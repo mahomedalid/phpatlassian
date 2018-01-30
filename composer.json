@@ -1,0 +1,19 @@
+{
+  "name":"mahopam/atlassian",
+  "description": "Composer library because reasons",
+  "license": "MIT",
+  "require": 
+  {
+        "php-curl-class/php-curl-class": "^7.2",
+        "gentle/bitbucket-api": "^0.8.2",
+        "guzzle/guzzle": "^3.9",
+        "silex/silex": "^2.2"
+  },
+  "autoload":
+  {
+    "psr-4":
+    {
+      "Mahopam\\": "src/Mahopam/"
+    }
+  }
+}
