@@ -16,10 +16,9 @@ class DevStats
     protected $additionalFields = '';
     protected $sprintsBoard = 'board/36/sprint?startAt=45';
 
-    public function __construct(JiraConnector $jiraConnector, IStorage $storage, $userId)
+    public function __construct(JiraConnector $jiraConnector, IStorage $storage)
     {
         $this->jiraConnector = $jiraConnector;
-        $this->userId = $userId;
         $this->storage = $storage;
     }
 
